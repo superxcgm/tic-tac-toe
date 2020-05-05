@@ -18,6 +18,8 @@ public:
     void submit(Player player, int pos);
 
 private:
+    char getPlayerSign(Player player);
+    void updateBoard(int pos, char sign);
     static constexpr int row = 3;
     static constexpr int col = 3;
     std::array<std::array<char, col>, row> data;

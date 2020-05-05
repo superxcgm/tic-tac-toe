@@ -28,11 +28,17 @@ std::ostream &operator<<(std::ostream &os, const Board &board) {
 }
 
 void Board::submit(Player player, int pos) {
-    char sign;
+    updateBoard(pos, getPlayerSign(player));
+}
+
+char Board::getPlayerSign(Player player) {
     if (player == Player::_1) {
-        sign = 'X';
+        return 'X';
     } else {
-        sign = 'O';
+        return 'O';
     }
+}
+
+void Board::updateBoard(int pos, char sign) {
     data[(pos - 1) / col][(pos - 1) % col] = sign;
 }
