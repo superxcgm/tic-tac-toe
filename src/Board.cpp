@@ -28,5 +28,11 @@ std::ostream &operator<<(std::ostream &os, const Board &board) {
 }
 
 void Board::submit(Player player, int pos) {
-    data[(pos - 1) / col][(pos - 1) % col] = 'X';
+    char sign;
+    if (player == Player::_1) {
+        sign = 'X';
+    } else {
+        sign = 'O';
+    }
+    data[(pos - 1) / col][(pos - 1) % col] = sign;
 }

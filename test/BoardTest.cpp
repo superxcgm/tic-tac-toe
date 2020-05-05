@@ -34,3 +34,15 @@ TEST_F(ABoard, DisplayChangedBoardWhenPlayer1Submit) {
 
     ASSERT_THAT(got, testing::StrEq(want));
 }
+
+TEST_F(ABoard, DisplayChangedBoardWhenPlayer2Submit) {
+    board.submit(Player::_2, 4);
+    os << board;
+
+    auto got = os.str();
+    std::string want = std::string(" 1 | 2 | 3\n") +
+                       " O | 5 | 6\n" +
+                       " 7 | 8 | 9\n";
+
+    ASSERT_THAT(got, testing::StrEq(want));
+}
