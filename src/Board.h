@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <array>
+#include "Player.h"
 
 class Board {
 public:
@@ -14,9 +15,7 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const Board &board);
 
-    void submit(int pos) {
-        data[(pos - 1) / col][(pos - 1) % col] = 'X';
-    }
+    void submit(Player player, int pos);
 
 private:
     static constexpr int row = 3;

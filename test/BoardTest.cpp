@@ -23,8 +23,8 @@ TEST_F(ABoard, DisplayInitialBoard) {
     ASSERT_THAT(got, testing::StrEq(want));
 }
 
-TEST_F(ABoard, DisplayChangedBoardWhenPlayerSubmit) {
-    board.submit(4);
+TEST_F(ABoard, DisplayChangedBoardWhenPlayer1Submit) {
+    board.submit(Player::_1, 4);
     os << board;
 
     auto got = os.str();

@@ -26,3 +26,7 @@ std::ostream &operator<<(std::ostream &os, const Board &board) {
     }
     return os;
 }
+
+void Board::submit(Player player, int pos) {
+    data[(pos - 1) / col][(pos - 1) % col] = 'X';
+}
