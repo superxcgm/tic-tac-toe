@@ -4,45 +4,15 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <ostream>
-#include <array>
+#include <Board.h>
 
-class Board {
+class ABoard: public testing::Test {
 public:
-    Board() {
-        int index = 1;
-        for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < 3; ++j) {
-                data[i][j] = (index++) + '0';
-            }
-        }
-    }
-
-    friend std::ostream &operator<<(std::ostream &os, const Board &board) {
-        for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < 3; ++j) {
-                os << " " << board.data[i][j];
-                if (j != 3 - 1) {
-                    os << " |";
-                } else {
-                    os << "\n";
-                }
-            }
-        }
-        return os;
-    }
-
-    void submit(int pos) {
-        data[(pos - 1) / 3][(pos - 1) % 3] = 'X';
-    }
-
-private:
-    std::array<std::array<char, 3>, 3> data;
-};
-
-TEST(ABoard, DisplayInitialBoard) {
     Board board;
     std::ostringstream os;
+};
 
+TEST_F(ABoard, DisplayInitialBoard) {
     os << board;
 
     auto got = os.str();
@@ -53,10 +23,7 @@ TEST(ABoard, DisplayInitialBoard) {
     ASSERT_THAT(got, testing::StrEq(want));
 }
 
-TEST(ABoard, DisplayChangedBoardWhenPlayerSubmit) {
-    Board board;
-    std::ostringstream os;
-
+TEST_F(ABoard, DisplayChangedBoardWhenPlayerSubmit) {
     board.submit(4);
     os << board;
 
