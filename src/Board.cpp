@@ -3,6 +3,7 @@
 //
 
 #include "Board.h"
+#include "Coordinate.h"
 
 Board::Board() {
     int index = 1;
@@ -41,5 +42,6 @@ char Board::getPlayerSign(Player player) {
 
 void Board::updateBoard(int pos, char sign) {
     lastPos = pos;
-    data[(pos - 1) / col][(pos - 1) % col] = sign;
+    Coordinate c(pos, Board::col);
+    data[c.y][c.x] = sign;
 }
