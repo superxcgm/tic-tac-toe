@@ -40,5 +40,6 @@ char Board::getPlayerSign(Player player) {
 }
 
 void Board::updateBoard(int pos, char sign) {
+    lastPos = pos;
     data[(pos - 1) / col][(pos - 1) % col] = sign;
 }
