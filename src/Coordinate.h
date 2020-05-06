@@ -28,6 +28,10 @@ struct Coordinate {
         return Coordinate(x, y - 1);
     }
 
+    Coordinate upRight() const {
+        return Coordinate(x + 1, y - 1);
+    }
+
     Coordinate upLeft() const {
         return Coordinate(x - 1, y - 1);
     }
@@ -38,6 +42,10 @@ struct Coordinate {
 
     Coordinate downRight() const {
         return Coordinate(x + 1, y + 1);
+    }
+
+    Coordinate downLeft() const {
+        return Coordinate(x - 1, y + 1);
     }
 };
 

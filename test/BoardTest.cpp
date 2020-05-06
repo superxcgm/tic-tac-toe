@@ -74,3 +74,11 @@ TEST_F(ABoard, ShouldTerminateWhen3SameSignAtOnePositiveSlopeLine) {
 
     ASSERT_FALSE(board);
 }
+
+TEST_F(ABoard, ShouldTerminateWhen3SameSignAtOneNegativeSlopeLine) {
+    board.submit(Player::_1, 3);
+    board.submit(Player::_1, 5);
+    board.submit(Player::_1, 7);
+
+    ASSERT_FALSE(board);
+}
