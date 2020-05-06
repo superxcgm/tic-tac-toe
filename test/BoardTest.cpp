@@ -58,3 +58,11 @@ TEST_F(ABoard, ShouldTerminateWhen3SameSignAtOneHorizontalLine) {
 
     ASSERT_FALSE(board);
 }
+
+TEST_F(ABoard, ShouldTerminateWhen3SameSignAtOneVerticalLine) {
+    board.submit(Player::_1, 1);
+    board.submit(Player::_1, 4);
+    board.submit(Player::_1, 7);
+
+    ASSERT_FALSE(board);
+}

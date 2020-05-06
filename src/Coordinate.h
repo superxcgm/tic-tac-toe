@@ -23,6 +23,14 @@ struct Coordinate {
     Coordinate right() const {
         return Coordinate(x + 1, y);
     }
+
+    Coordinate up() const {
+        return Coordinate(x, y - 1);
+    }
+
+    Coordinate down() const {
+        return Coordinate(x, y + 1);
+    }
 };
 
 

@@ -30,6 +30,13 @@ public:
             if (cnt >= 3) {
                 return false;
             }
+
+            cnt = 1;
+            cnt += countSide(last, [](const Coordinate &current) { return current.up(); }, lastSign);
+            cnt += countSide(last, [](const Coordinate &current) { return current.down(); }, lastSign);
+            if (cnt >= 3) {
+                return false;
+            }
         }
         return true;
     }
