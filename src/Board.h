@@ -37,6 +37,13 @@ public:
             if (cnt >= 3) {
                 return false;
             }
+
+            cnt = 1;
+            cnt += countSide(last, [](const Coordinate &current) { return current.upLeft(); }, lastSign);
+            cnt += countSide(last, [](const Coordinate &current) { return current.downRight(); }, lastSign);
+            if (cnt >= 3) {
+                return false;
+            }
         }
         return true;
     }
