@@ -42,6 +42,6 @@ char Board::getPlayerSign(Player player) {
 
 void Board::updateBoard(int pos, char sign) {
     lastPos = pos;
-    Coordinate c(pos, Board::col);
+    auto c = Coordinate::fromPos(pos, Board::col);
     data[c.y][c.x] = sign;
 }

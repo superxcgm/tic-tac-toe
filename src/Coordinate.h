@@ -7,12 +7,14 @@
 
 
 struct Coordinate {
-    Coordinate(int pos, int col) {
-        y = (pos - 1) / col;
-        x = (pos - 1) % col;
-    }
+    Coordinate(int x, int y) : x(x), y(y) {}
+
     int x;
     int y;
+
+    static Coordinate fromPos(int pos, int col) {
+        return Coordinate((pos - 1) % col, (pos - 1) / col);
+    }
 };
 
 

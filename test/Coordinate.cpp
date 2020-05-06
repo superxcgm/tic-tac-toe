@@ -7,7 +7,7 @@
 #include "gtest/gtest.h"
 
 TEST(ACoordinate, ConverFromPosCorrectly) {
-    Coordinate c(4, 3);
+    auto c = Coordinate::fromPos(4, 3);
 
     ASSERT_THAT(c.x, testing::Eq(0));
     ASSERT_THAT(c.y, testing::Eq(1));
