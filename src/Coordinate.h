@@ -15,6 +15,10 @@ struct Coordinate {
     static Coordinate fromPos(int pos, int col) {
         return Coordinate((pos - 1) % col, (pos - 1) / col);
     }
+
+    Coordinate left() {
+        return Coordinate(x - 1, y);
+    }
 };
 
 
