@@ -24,6 +24,7 @@ public:
             auto last = Coordinate::fromPos(lastPos, col);
             auto lastSign = data[last.y][last.x];
 
+            // TODO: duplicate code
             cnt += countSide(last, [](const Coordinate &current) { return current.left(); }, lastSign);
             cnt += countSide(last, [](const Coordinate &current) { return current.right(); }, lastSign);
 
