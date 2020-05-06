@@ -17,6 +17,7 @@ public:
 private:
     Board board;
     std::istream &is;
+    void printBoard();
 };
 
 
