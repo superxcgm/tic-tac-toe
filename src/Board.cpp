@@ -71,3 +71,41 @@ int Board::countSide(Coordinate current, Coordinate (*getNext)(const Coordinate 
     }
     return cnt;
 }
+
+Board::operator bool() const {
+    if (lastPos == NotAPos) return true;
+
+    int cnt = 1;
+    auto last = Coordinate::fromPos(lastPos, col);
+    auto lastSign = data[last.y][last.x];
+
+    // TODO: duplicate code
+    cnt += countSide(last, [](const Coordinate &current) { return current.left(); }, lastSign);
+    cnt += countSide(last, [](const Coordinate &current) { return current.right(); }, lastSign);
+
+    if (cnt >= 3) {
+        return false;
+    }
+
+    cnt = 1;
+    cnt += countSide(last, [](const Coordinate &current) { return current.up(); }, lastSign);
+    cnt += countSide(last, [](const Coordinate &current) { return current.down(); }, lastSign);
+    if (cnt >= 3) {
+        return false;
+    }
+
+    cnt = 1;
+    cnt += countSide(last, [](const Coordinate &current) { return current.upLeft(); }, lastSign);
+    cnt += countSide(last, [](const Coordinate &current) { return current.downRight(); }, lastSign);
+    if (cnt >= 3) {
+        return false;
+    }
+
+    cnt = 1;
+    cnt += countSide(last, [](const Coordinate &current) { return current.upRight(); }, lastSign);
+    cnt += countSide(last, [](const Coordinate &current) { return current.downLeft(); }, lastSign);
+    if (cnt >= 3) {
+        return false;
+    }
+    return true;
+}
