@@ -45,3 +45,29 @@ void Board::updateBoard(int pos, char sign) {
     auto c = Coordinate::fromPos(pos, Board::col);
     data[c.y][c.x] = sign;
 }
+
+bool Board::isCoordinateValid(const Coordinate &c) const {
+    if (c.x < 0 || c.x >= col) {
+        return false;
+    }
+    if (c.y < 0 || c.y >= row) {
+        return false;
+    }
+    return true;
+}
+
+int Board::countSide(Coordinate current, Coordinate (*getNext)(const Coordinate &), char sign) const {
+    int cnt = 0;
+    while (true) {
+        auto next = getNext(current);
+        if (!isCoordinateValid(next)) {
+            break;
+        }
+        if (data[next.y][next.x] != sign) {
+            break;
+        }
+        current = next;
+        cnt++;
+    }
+    return cnt;
+}

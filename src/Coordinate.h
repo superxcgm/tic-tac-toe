@@ -16,8 +16,12 @@ struct Coordinate {
         return Coordinate((pos - 1) % col, (pos - 1) / col);
     }
 
-    Coordinate left() {
+    Coordinate left() const {
         return Coordinate(x - 1, y);
+    }
+
+    Coordinate right() const {
+        return Coordinate(x + 1, y);
     }
 };
 

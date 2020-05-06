@@ -47,7 +47,7 @@ TEST_F(ABoard, DisplayChangedBoardWhenPlayer2Submit) {
     ASSERT_THAT(got, testing::StrEq(want));
 }
 
-TEST_F(ABoard, ShouldTerminateWhen3SameSignAtOneLine) {
+TEST_F(ABoard, ShouldTerminateWhen3SameSignAtOneHorizontalLine) {
     board.submit(Player::_1, 1);
     board.submit(Player::_1, 2);
     board.submit(Player::_1, 3);

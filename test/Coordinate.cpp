@@ -22,3 +22,11 @@ TEST(ACoordinate, ReturnLeftOfCoordinate) {
     ASSERT_THAT(left.x, Eq(0));
     ASSERT_THAT(left.y, Eq(2));
 }
+
+TEST(ACoordinate, ReturnRightOfCoordinate) {
+    Coordinate c(1, 2);
+
+    auto left = c.right();
+    ASSERT_THAT(left.x, Eq(2));
+    ASSERT_THAT(left.y, Eq(2));
+}
